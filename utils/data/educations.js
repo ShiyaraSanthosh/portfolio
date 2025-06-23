@@ -1,20 +1,20 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "High School",
+    duration: "2017 - 2019",
+    institution: "Govt. HSS Munderi",
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
+    title: "Higher Secondary",
+    duration: "2020 - 2021",
+    institution: "KPC HSS Pattanur",
   },
   {
     id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
-  }
-]
+    title: "College",
+    duration: "2022 - 2025",
+    institution: "SES College Sreekandapuram",
+  },
+];
