@@ -1,10 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "color-themes.scss";
 
 :root {
-  --foreground-rgb: rgb(211, 216, 232);
+  --foreground-rgb: 255, 255, 255;
 }
+
+/* Alternative Theme Options - Uncomment to use */
+
+/* 
+// Cyberpunk Neon Theme
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: #0f3460;
+  
+  --accent-primary: #00ffff;
+  --accent-secondary: #ff0080;
+  --accent-gradient: linear-gradient(135deg, #00ffff 0%, #ff0080 100%);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  
+  --border-primary: #1e40af;
+  --border-secondary: #3b82f6;
+  
+  --glow-primary: rgba(0, 255, 255, 0.4);
+  --glow-secondary: rgba(255, 0, 128, 0.4);
+}
+*/
+
+/*
+// Warm Sunset Theme
+:root {
+  --bg-primary: #0f0a19;
+  --bg-secondary: #1a1625;
+  --bg-tertiary: #2d1b3d;
+  --bg-card: #3d2952;
+  
+  --accent-primary: #f59e0b;
+  --accent-secondary: #ec4899;
+  --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #f1f5f9;
+  --text-muted: #cbd5e1;
+  
+  --border-primary: #7c2d12;
+  --border-secondary: #ea580c;
+  
+  --glow-primary: rgba(245, 158, 11, 0.3);
+  --glow-secondary: rgba(236, 72, 153, 0.3);
+}
+*/
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -14,7 +63,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+  background: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 40% 20%, var(--glow-secondary) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, var(--glow-primary) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, var(--glow-secondary) 0px, transparent 50%);
 }
 
 #sticky-card-1 {

@@ -9,6 +9,7 @@
 
 .glow-card:is(:hover, :focus-visible) {
   z-index: 2;
+  --active: 0.3;
 }
 
 .glows {
@@ -23,17 +24,17 @@
   --alpha: 0;
   content: "";
   background: conic-gradient(from 180deg at 50% 70%,
-      #f626af 0deg,
-      #8228ec 72.0000010728836deg,
-      #f626af 144.0000021457672deg,
-      #0025ba 216.00000858306885deg,
-      #f626af 288.0000042915344deg,
-      #fafafa 1turn);
+      var(--accent-primary) 0deg,
+      var(--accent-secondary) 72deg,
+      var(--accent-primary) 144deg,
+      #0066cc 216deg,
+      var(--accent-primary) 288deg,
+      #ffffff 360deg);
   background-attachment: fixed;
   position: absolute;
   inset: -5px;
   border: 8px solid transparent;
-  border-radius: 12px;
+  border-radius: 16px;
   mask: linear-gradient(#0000, #0000),
     conic-gradient(from calc((var(--start) - (var(--spread) * 0.5)) * 1deg),
       #000 0deg,
@@ -42,7 +43,7 @@
   mask-composite: intersect;
   mask-clip: padding-box, border-box;
   opacity: var(--active);
-  transition: opacity 1s;
+  transition: opacity 1s ease-in-out;
 }
 
 .glow-card::before {
@@ -50,20 +51,21 @@
   inset: 0;
   border: 2px solid transparent;
   content: "";
-  border-radius: 12px;
+  border-radius: 16px;
   pointer-events: none;
-  background: #84738c;
+  background: linear-gradient(135deg, 
+    rgba(0, 212, 255, 0.1) 0%, 
+    rgba(124, 58, 237, 0.1) 100%);
   background-attachment: fixed;
-  border-radius: 12px;
   mask: linear-gradient(#0000, #0000),
     conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) * 1deg),
-      #ffffff26 0deg,
+      rgba(255, 255, 255, 0.1) 0deg,
       white,
-      #ffffff26 calc(var(--spread) * 2.5deg));
+      rgba(255, 255, 255, 0.1) calc(var(--spread) * 2.5deg));
   mask-clip: padding-box, border-box;
   mask-composite: intersect;
   opacity: var(--active);
-  transition: opacity 1s;
+  transition: opacity 1s ease-in-out;
 }
 
 .glow-card::after {
@@ -72,16 +74,16 @@
   pointer-events: none;
   position: absolute;
   background: conic-gradient(from 180deg at 50% 70%,
-      #f626af 0deg,
-      #8228ec 72.0000010728836deg,
-      #f626af 144.0000021457672deg,
-      #0025ba 216.00000858306885deg,
-      #f626af 288.0000042915344deg,
-      #fafafa 1turn);
+      var(--accent-primary) 0deg,
+      var(--accent-secondary) 72deg,
+      var(--accent-primary) 144deg,
+      #0066cc 216deg,
+      var(--accent-primary) 288deg,
+      #ffffff 360deg);
   background-attachment: fixed;
-  border-radius: 12px;
+  border-radius: 16px;
   opacity: var(--active, 0);
-  transition: opacity 1s;
+  transition: opacity 1s ease-in-out;
   --alpha: 0;
   inset: 0;
   border: 2px solid transparent;
@@ -90,7 +92,29 @@
       #0000 0deg,
       #fff,
       #0000 calc(var(--spread) * 0.5deg));
-  filter: brightness(1.5);
+  filter: brightness(1.8) saturate(1.2);
   mask-clip: padding-box, border-box;
   mask-composite: intersect;
+}
+
+/* Additional utility classes for the new theme */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+.bg-card { background-color: var(--bg-card); }
+
+.text-accent-primary { color: var(--accent-primary); }
+.text-accent-secondary { color: var(--accent-secondary); }
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+.border-primary { border-color: var(--border-primary); }
+.border-secondary { border-color: var(--border-secondary); }
+
+.gradient-accent {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
