@@ -13,7 +13,7 @@ export const educations = [
   },
   {
     id: 3,
-    title: "College",
+    title: "Bachelor of Science in Computer Science ",
     duration: "2022 - 2025",
     institution: "SES College Sreekandapuram",
   },
